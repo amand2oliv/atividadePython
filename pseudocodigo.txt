@@ -1,0 +1,88 @@
+real precoUnitario, pais, imposto, vt, seguro, totalImposto
+caractere transporte, tipoCarga
+
+Mostre ("Digite o preço unitário")
+Leia precoUnitario
+totalImposto = 0
+
+Enquanto precoUnitario > 0 Faca
+ Mostre ("Digite o preço unitário")
+ Leia precoUnitario
+
+ Se precoUnitario > 0 Entao
+  Mostre ("Digite o país/n/n
+[1] EUA/n/n
+[2] MÉXICO/n/n
+[3] Outro/n/n")
+  Leia pais
+  Mostre ("Qual o tipo de transporte?/n/n
+[T] TERRESTRE/n/n
+[A] AÉREO/n/n
+[F] FLUVIAL/n/n")
+  Leia transporte
+  Mostre ("Possui carga perigosa?/n/n
+[S] Sim
+[N] Não/n/n")
+  Leia tipoCarga
+
+   Se precoUnitario <= 100 Entao
+    imposto = 0.05*precoUnitario
+   Senao
+    imposto = 0.1*precoUnitario
+   Fimse
+
+   Se tipoCarga = ("S") Entao
+    Se pais = 1 Entao
+     vt <- 50
+    Senao 
+     Se pais = 2 Entao
+      vt <- 21
+     Senao
+      Se pais = 3 Entao
+       vt <-24
+      Senao
+       Mostre ("País inválido.")
+   Senao 
+    Se tipoCarga ("N") Entao
+     Se pais = 1 Entao
+      vt <- 12
+     Senao
+      Se pais = 2 Entao
+       vt <- 21
+      Senao
+       Se pais = 3 Entao
+        vt <- 60
+       Senao 
+        Mostre ("País inválido.")
+    Senao
+    Mostre ("Tipo de carga inválido.")
+
+ Senao 
+  Mostre ("Programa finalizado.")
+
+ Fimse
+
+ Se pais = 2 ou transporte = ("A") Entao
+  seguro = precoUnitario/2
+ Senao
+  seguro = 0
+
+ Fimse
+
+ Faca precoFinal = precoUnitario+imposto+vt+seguro
+
+ Mostre ("precoFinal")
+ 
+ Faca totalImposto=totalImposto+imposto
+ 
+ Mostre ("totalImposto")
+ 
+ Mostre ("Digite o preço unitário)
+ Leia precoUnitario
+
+Fimenquanto
+
+Senao
+ Mostre ("Programa finalizado.")
+
+Fimse
